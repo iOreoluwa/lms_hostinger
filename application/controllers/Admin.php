@@ -1849,6 +1849,26 @@ class Admin extends CI_Controller
     }
 
 
+    public function export_csv(){ 
+		/* file name */
+		$filename = 'users_'.date('Ymd').'.csv'; 
+		header("Content-Description: File Transfer"); 
+		header("Content-Disposition: attachment; filename=$filename"); 
+		header("Content-Type: application/csv; ");
+	   /* get data */
+		$usersData = $this->User_model->getUserDetails();
+		/* file creation */
+		$file = fopen('php:/* output','w'); 
+		$header = array("First Name","Last Name","Email"); 
+		fputcsv($file, $header);
+		foreach ($usersData as $key=>$line){ 
+			fputcsv($file,$line); 
+		}
+		fclose($file); 
+		exit; 
+	}
+
+
 
 
 

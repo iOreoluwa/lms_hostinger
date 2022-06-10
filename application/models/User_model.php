@@ -588,4 +588,14 @@ class User_model extends CI_Model
         $this->db->where_in('id', $instructor_ids);
         return $this->db->get('users')->result_array();
     }
+
+    //EXPORT ALL USERS
+
+    function getUserDetails(){
+       $response = array();
+       $this->db->select('first_name,last_name,email');
+       $q = $this->db->get('users');
+       $response = $q->result_array();
+       return $response;
+   }
 }

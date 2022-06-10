@@ -15,6 +15,14 @@ $status_wise_courses = $this->crud_model->get_status_wise_courses();
 
 	<!--- Sidemenu -->
 	<ul class="metismenu side-nav side-nav-light">
+		
+	<li class="side-anv-item">
+		<a href='<?= base_url() ?>export/export_csv' class="side-nav-link">
+				<!-- <i class="dripicons-view-apps"></i>
+				<span><?php echo get_phrase('export_users'); ?></span> -->
+				<button class="btn btn-primary btn-block" name="save"><?php echo get_phrase('export_users'); ?></button>
+			</a>
+		</li>
 
 		<li class="side-nav-title side-nav-item"><?php echo get_phrase('navigation'); ?></li>
 
@@ -24,12 +32,7 @@ $status_wise_courses = $this->crud_model->get_status_wise_courses();
 				<span><?php echo get_phrase('dashboard'); ?></span>
 			</a>
 		</li>
-		<li class="side-anv-item">
-		<a href="" class="side-nav-link">
-				<i class="dripicons-view-apps"></i>
-				<span><?php echo get_phrase('Export Users'); ?></span>
-			</a>
-		</li>
+
 
 		<?php if (has_permission('course')) : ?>
 			<li class="side-nav-item <?php if ($page_name == 'courses' || $page_name == 'course_add' || $page_name == 'course_edit' || $page_name == 'categories' || $page_name == 'category_add' || $page_name == 'category_edit' || $page_name == 'coupons' || $page_name == 'coupon_add' || $page_name == 'coupon_edit' || $page_name == 'add_bundle' || $page_name == 'manage_course_bundle' || $page_name == 'edit_bundle' || $page_name == 'active_bundle_subscription_report' || $page_name == 'expire_bundle_subscription_report' || $page_name == 'bundle_invoice') echo 'active'; ?>">
